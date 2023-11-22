@@ -57,6 +57,7 @@ begin
   qryClienteCadastro.ParamByName('ID').AsInteger :=
     qryClientesPesquisaID.AsInteger;
   qryClienteCadastro.Open;
+  qryClienteCadastro.Edit;
 
   Result := True;
 end;

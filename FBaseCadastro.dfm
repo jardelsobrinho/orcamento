@@ -11,6 +11,7 @@ object frmBaseCadastro: TfrmBaseCadastro
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poMainFormCenter
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -26,7 +27,7 @@ object frmBaseCadastro: TfrmBaseCadastro
       551
       41)
     object BitBtn1: TBitBtn
-      Left = 384
+      Left = 380
       Top = 8
       Width = 75
       Height = 25
@@ -34,9 +35,10 @@ object frmBaseCadastro: TfrmBaseCadastro
       Caption = 'Gravar'
       TabOrder = 0
       OnClick = BitBtn1Click
+      ExplicitLeft = 376
     end
     object BitBtn2: TBitBtn
-      Left = 465
+      Left = 461
       Top = 8
       Width = 75
       Height = 25
@@ -44,6 +46,7 @@ object frmBaseCadastro: TfrmBaseCadastro
       Caption = 'Fechar'
       TabOrder = 1
       OnClick = BitBtn2Click
+      ExplicitLeft = 457
     end
   end
 end

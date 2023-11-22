@@ -22,6 +22,5 @@ begin
   Application.CreateForm(TdmConexao, dmConexao);
   Application.CreateForm(TdmClientes, dmClientes);
   Application.CreateForm(TdmOrcamento, dmOrcamento);
-  Application.CreateForm(TfrmOrcamentoCadastro, frmOrcamentoCadastro);
   Application.Run;
 end.

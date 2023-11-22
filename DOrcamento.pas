@@ -57,7 +57,7 @@ implementation
 function TdmOrcamento.AlteraOrcamento: Boolean;
 begin
   Result := False;
-  if (not qryOrcamentoCadastro.Active) or (qryOrcamentoCadastro.RecordCount = 0)
+  if (not qryOrcamentoPesquisa.Active) or (qryOrcamentoPesquisa.RecordCount = 0)
   then
   begin
     MessageDlg('Nenhum orçamento foi selecionado', mtWarning, [mbOk], 0);
@@ -68,6 +68,7 @@ begin
   qryOrcamentoCadastro.ParamByName('ID').AsInteger :=
     qryOrcamentoPesquisaID.AsInteger;
   qryOrcamentoCadastro.Open;
+  qryOrcamentoCadastro.Edit;
 
   Result := True;
 end;

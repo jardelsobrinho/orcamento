@@ -61,6 +61,7 @@ object dmOrcamento: TdmOrcamento
   object qryOrcamentoCadastro: TFDQuery
     Active = True
     OnNewRecord = qryOrcamentoCadastroNewRecord
+    CachedUpdates = True
     Connection = dmConexao.fdConexao
     Transaction = dmConexao.fdTransacao
     UpdateTransaction = dmConexao.fdTransacao
@@ -117,6 +118,7 @@ object dmOrcamento: TdmOrcamento
     end
   end
   object updOrcamentoCadastro: TFDUpdateSQL
+    Connection = dmConexao.fdConexao
     InsertSQL.Strings = (
       'INSERT INTO ORCAMENTO'
       '(ID, CLIENTE_ID, DATA_CADASTRO, DATA_ENTREGA, '
