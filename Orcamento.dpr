@@ -11,7 +11,8 @@ uses
   FBaseCadastro in 'FBaseCadastro.pas' {frmBaseCadastro},
   FClienteCadastro in 'FClienteCadastro.pas' {frmClienteCadastro},
   DOrcamento in 'DOrcamento.pas' {dmOrcamento: TDataModule},
-  FOrcamentoCadastro in 'FOrcamentoCadastro.pas' {frmOrcamentoCadastro};
+  FOrcamentoCadastro in 'FOrcamentoCadastro.pas' {frmOrcamentoCadastro},
+  FOrcamentoItemCadastro in 'FOrcamentoItemCadastro.pas' {frmOrcamentoItemCadastro};
 
 {$R *.res}
 

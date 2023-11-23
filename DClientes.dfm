@@ -101,4 +101,26 @@ object dmClientes: TdmClientes
       ReadOnly = True
     end
   end
+  object qryListaClientes: TFDQuery
+    Connection = dmConexao.fdConexao
+    Transaction = dmConexao.fdTransacao
+    SQL.Strings = (
+      'SELECT C.ID, C.NOME'
+      'FROM CLIENTE C'
+      'ORDER BY C.NOME')
+    Left = 512
+    Top = 24
+    object qryListaClientesID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryListaClientesNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 100
+    end
+  end
 end

@@ -1,8 +1,7 @@
 object dmConexao: TdmConexao
   OnCreate = DataModuleCreate
-  Height = 600
-  Width = 800
-  PixelsPerInch = 120
+  Height = 480
+  Width = 640
   object fdConexao: TFDConnection
     Params.Strings = (
       'Database=ORCAMENTO'
@@ -15,12 +14,12 @@ object dmConexao: TdmConexao
     Connected = True
     LoginPrompt = False
     Transaction = fdTransacao
-    Left = 140
-    Top = 30
+    Left = 112
+    Top = 24
   end
   object fdTransacao: TFDTransaction
     Connection = fdConexao
-    Left = 140
-    Top = 110
+    Left = 112
+    Top = 88
   end
 end

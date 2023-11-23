@@ -143,6 +143,10 @@
             <Form>frmOrcamentoCadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="FOrcamentoItemCadastro.pas">
+            <Form>frmOrcamentoItemCadastro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

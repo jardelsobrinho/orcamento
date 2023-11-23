@@ -21,6 +21,9 @@ type
     qryClienteCadastroTELEFONE: TStringField;
     qryRetornaClienteId: TFDQuery;
     qryRetornaClienteIdCLIENTE_ID: TLargeintField;
+    qryListaClientes: TFDQuery;
+    qryListaClientesID: TIntegerField;
+    qryListaClientesNOME: TStringField;
     procedure DataModuleCreate(Sender: TObject);
   private
     function ValidaDados: Boolean;
@@ -32,6 +35,7 @@ type
     function ExcluiCliente: Boolean;
     procedure CancelaDados;
     procedure NovoCliente;
+    procedure AtualizaListaClientes;
   end;
 
 var
@@ -60,6 +64,12 @@ begin
   qryClienteCadastro.Edit;
 
   Result := True;
+end;
+
+procedure TdmClientes.AtualizaListaClientes;
+begin
+  qryListaClientes.Close;
+  qryListaClientes.Open;
 end;
 
 procedure TdmClientes.CancelaDados;
@@ -127,6 +137,9 @@ end;
 
 procedure TdmClientes.NovoCliente;
 begin
+  qryClienteCadastro.Close;
+  qryClienteCadastro.ParamByName('ID').AsInteger := 0;
+  qryClienteCadastro.Open;
   qryClienteCadastro.Append;
 end;
 
