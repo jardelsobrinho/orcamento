@@ -23,6 +23,7 @@ object frmBasePesquisa: TfrmBasePesquisa
     Align = alTop
     BevelOuter = bvNone
     Caption = 'NOME DO FORMULARIO AQUI'
+    Color = clSilver
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19

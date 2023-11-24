@@ -1,15 +1,14 @@
 inherited frmClienteCadastro: TfrmClienteCadastro
   Caption = 'CADASTRO DE CLIENTE'
-  ClientHeight = 183
-  ClientWidth = 446
-  Position = poMainFormCenter
+  ClientHeight = 162
+  ClientWidth = 430
   OnShow = FormShow
-  ExplicitWidth = 458
-  ExplicitHeight = 221
+  ExplicitWidth = 442
+  ExplicitHeight = 200
   TextHeight = 15
   object Label1: TLabel [0]
     Left = 16
-    Top = 24
+    Top = 16
     Width = 35
     Height = 15
     Caption = 'NOME'
@@ -17,32 +16,32 @@ inherited frmClienteCadastro: TfrmClienteCadastro
   end
   object Label2: TLabel [1]
     Left = 16
-    Top = 72
+    Top = 64
     Width = 54
     Height = 15
     Caption = 'TELEFONE'
     FocusControl = DBEdit2
   end
   inherited Panel1: TPanel
-    Top = 142
-    Width = 446
+    Top = 121
+    Width = 430
     ExplicitTop = 141
     ExplicitWidth = 442
     DesignSize = (
-      446
+      430
       41)
     inherited BitBtn1: TBitBtn
-      Left = 275
-      ExplicitLeft = 271
+      Left = 255
+      ExplicitLeft = 255
     end
     inherited BitBtn2: TBitBtn
-      Left = 356
-      ExplicitLeft = 352
+      Left = 336
+      ExplicitLeft = 336
     end
   end
   object dbeNome: TDBEdit
     Left = 16
-    Top = 43
+    Top = 35
     Width = 385
     Height = 23
     CharCase = ecUpperCase
@@ -52,8 +51,8 @@ inherited frmClienteCadastro: TfrmClienteCadastro
   end
   object DBEdit2: TDBEdit
     Left = 16
-    Top = 88
-    Width = 193
+    Top = 80
+    Width = 129
     Height = 23
     DataField = 'TELEFONE'
     DataSource = dsCadastro
@@ -63,6 +62,6 @@ inherited frmClienteCadastro: TfrmClienteCadastro
   object dsCadastro: TDataSource
     DataSet = dmClientes.qryClienteCadastro
     Left = 224
-    Top = 40
+    Top = 32
   end
 end

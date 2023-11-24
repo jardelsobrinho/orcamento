@@ -31,12 +31,16 @@ inherited frmOrcamentoItemCadastro: TfrmOrcamentoItemCadastro
       429
       41)
     inherited BitBtn1: TBitBtn
-      Left = 250
-      ExplicitLeft = 246
+      Left = 267
+      Top = 9
+      ExplicitLeft = 267
+      ExplicitTop = 9
     end
     inherited BitBtn2: TBitBtn
-      Left = 331
-      ExplicitLeft = 327
+      Left = 348
+      Top = 9
+      ExplicitLeft = 348
+      ExplicitTop = 9
     end
   end
   object dbeDescricao: TDBEdit

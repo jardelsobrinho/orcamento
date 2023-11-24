@@ -23,16 +23,62 @@ inherited frmOrcamentoPesquisa: TfrmOrcamentoPesquisa
     object Label1: TLabel [0]
       Left = 12
       Top = 0
-      Width = 160
+      Width = 90
       Height = 15
-      Caption = 'Pesquisa por Nome do Cliente'
+      Caption = 'Nome do Cliente'
+    end
+    object Label2: TLabel [1]
+      Left = 251
+      Top = 0
+      Width = 74
+      Height = 15
+      Caption = 'Data Cadastro'
+    end
+    object Label3: TLabel [2]
+      Left = 346
+      Top = 0
+      Width = 67
+      Height = 15
+      Caption = 'Data Entrega'
+    end
+    inherited btnPesquisa: TBitBtn
+      Left = 478
+      Top = 17
+      ExplicitLeft = 478
+      ExplicitTop = 17
+    end
+    inherited BitBtn2: TBitBtn
+      Left = 582
+      Top = 17
+      ExplicitLeft = 582
+      ExplicitTop = 17
     end
     object edNomeCliente: TEdit
       Left = 12
-      Top = 17
-      Width = 324
+      Top = 19
+      Width = 233
       Height = 23
       TabOrder = 2
+    end
+    object meDataCadastro: TMaskEdit
+      Left = 251
+      Top = 19
+      Width = 87
+      Height = 23
+      EditMask = '!99/99/9999;1;_'
+      MaxLength = 10
+      TabOrder = 3
+      Text = '  /  /    '
+    end
+    object meDataEntrega: TMaskEdit
+      Left = 346
+      Top = 19
+      Width = 87
+      Height = 23
+      EditMask = '!99/99/9999;1;_'
+      MaxLength = 10
+      TabOrder = 4
+      Text = '  /  /    '
     end
   end
   inherited gridPesquisa: TDBGrid

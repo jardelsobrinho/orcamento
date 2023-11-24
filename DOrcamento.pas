@@ -48,7 +48,7 @@ type
     procedure CalculaValorTotal;
     { Private declarations }
   public
-    procedure Pesquisa(ClienteNome: String);
+    procedure Pesquisa(ClienteNome: String; DataEntrega, DataCadastro: TDateTime);
     function GravaDados: Boolean;
     procedure GravaDadosItem;
     function AlteraOrcamento: Boolean;
@@ -133,16 +133,16 @@ end;
 
 procedure TdmOrcamento.ExcluiOrcamentoItem;
 begin
-  if (not qryOrcamentoItemCadastro.Active) or (qryOrcamentoItemCadastro.RecordCount = 0)
-  then
+  if (not qryOrcamentoItemCadastro.Active) or
+    (qryOrcamentoItemCadastro.RecordCount = 0) then
   begin
     MessageDlg('Nenhum Serviço foi selecionado', mtWarning, [mbOk], 0);
     Exit;
   end;
 
   if MessageDlg('Tem certeza que deseja excluir o serviço ' +
-    qryOrcamentoItemCadastroDESCRICAO.AsString, mtConfirmation, [mbYes, mbNo], 0) = mrYes
-  then
+    qryOrcamentoItemCadastroDESCRICAO.AsString, mtConfirmation, [mbYes, mbNo],
+    0) = mrYes then
   begin
     qryOrcamentoItemCadastro.Delete;
     CalculaValorTotal;
@@ -152,6 +152,34 @@ end;
 function TdmOrcamento.ValidaDados: Boolean;
 begin
   Result := False;
+
+  if qryOrcamentoCadastroCLIENTE_ID.AsInteger = 0 then
+  begin
+    MessageDlg('Selecione um Cliente antes de gravar o orçamento!', mtWarning,
+      [mbOk], 0);
+    Exit;
+  end;
+
+  if qryOrcamentoCadastroDATA_ENTREGA.AsDateTime = 0 then
+  begin
+    MessageDlg('Preencha a Data de Entrega antes de gravar o orçamento!', mtWarning,
+      [mbOk], 0);
+    Exit;
+  end;
+
+  if qryOrcamentoCadastroCARRO.AsString = '' then
+  begin
+    MessageDlg('Informe o carro antes de gravar o orçamento!', mtWarning,
+      [mbOk], 0);
+    Exit;
+  end;
+
+  if qryOrcamentoItemCadastro.RecordCount = 0 then
+  begin
+    MessageDlg('Adicione um serviço antes de gravar o orçamento!', mtWarning,
+      [mbOk], 0);
+    Exit;
+  end;
 
   Result := True;
 end;
@@ -166,7 +194,11 @@ begin
   dmConexao.fdTransacao.StartTransaction;
   try
     if qryOrcamentoCadastroID.AsInteger = 0 then
+    begin
+      if not (qryOrcamentoPesquisa.State in [dsInsert, dsEdit]) then
+        qryOrcamentoCadastro.Edit;
       qryOrcamentoCadastroID.AsInteger := RetornaIdOrcamento;
+    end;
 
     qryOrcamentoItemCadastro.First;
     while not qryOrcamentoItemCadastro.Eof do
@@ -259,7 +291,7 @@ end;
 procedure TdmOrcamento.NovoOrcamento;
 begin
   qryOrcamentoCadastro.Close;
-  qryOrcamentoCadastroID.AsInteger := 0;
+  qryOrcamentoCadastro.ParamByName('ID').AsInteger := 0;
   qryOrcamentoCadastro.Open;
   qryOrcamentoCadastro.Append;
 end;
@@ -269,7 +301,7 @@ begin
   qryOrcamentoItemCadastro.Append;
 end;
 
-procedure TdmOrcamento.Pesquisa(ClienteNome: String);
+procedure TdmOrcamento.Pesquisa(ClienteNome: String; DataEntrega, DataCadastro: TDateTime);
 begin
   qryOrcamentoPesquisa.Close;
   qryOrcamentoPesquisa.SQL.Clear;
@@ -280,6 +312,18 @@ begin
 
   if ClienteNome <> '' then
     qryOrcamentoPesquisa.SQL.Add('AND C.NOME LIKE ''' + ClienteNome + '%''');
+
+  if DataEntrega > 0 then
+  begin
+    qryOrcamentoPesquisa.SQL.Add('AND O.DATA_ENTREGA = :DATA_ENTREGA');
+    qryOrcamentoPesquisa.ParamByName('DATA_ENTREGA').AsDateTime := DataEntrega;
+  end;
+
+  if DataCadastro > 0 then
+  begin
+    qryOrcamentoPesquisa.SQL.Add('AND O.DATA_CADASTRO = :DATA_CADASTRO');
+    qryOrcamentoPesquisa.ParamByName('DATA_CADASTRO').AsDateTime := DataCadastro;
+  end;
 
   qryOrcamentoPesquisa.SQL.Add('ORDER BY O.DATA_CADASTRO, C.NOME');
   qryOrcamentoPesquisa.Open;

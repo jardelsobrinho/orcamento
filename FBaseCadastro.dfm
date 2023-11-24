@@ -20,6 +20,8 @@ object frmBaseCadastro: TfrmBaseCadastro
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
+    Color = clSilver
+    ParentBackground = False
     TabOrder = 0
     ExplicitTop = 309
     ExplicitWidth = 547
@@ -27,26 +29,24 @@ object frmBaseCadastro: TfrmBaseCadastro
       551
       41)
     object BitBtn1: TBitBtn
-      Left = 380
-      Top = 8
+      Left = 376
+      Top = 6
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = 'Gravar'
       TabOrder = 0
       OnClick = BitBtn1Click
-      ExplicitLeft = 376
     end
     object BitBtn2: TBitBtn
-      Left = 461
-      Top = 8
+      Left = 457
+      Top = 6
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = 'Fechar'
       TabOrder = 1
       OnClick = BitBtn2Click
-      ExplicitLeft = 457
     end
   end
 end

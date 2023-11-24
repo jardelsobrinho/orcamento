@@ -11,21 +11,21 @@ inherited frmOrcamentoCadastro: TfrmOrcamentoCadastro
     Top = 410
     Width = 591
     ExplicitTop = 409
-    ExplicitWidth = 591
+    ExplicitWidth = 587
     DesignSize = (
       591
       41)
     inherited BitBtn1: TBitBtn
-      Left = 422
-      Top = 12
-      ExplicitLeft = 426
-      ExplicitTop = 12
+      Left = 429
+      Top = 9
+      ExplicitLeft = 429
+      ExplicitTop = 9
     end
     inherited BitBtn2: TBitBtn
-      Left = 503
-      Top = 12
-      ExplicitLeft = 507
-      ExplicitTop = 12
+      Left = 510
+      Top = 9
+      ExplicitLeft = 510
+      ExplicitTop = 9
     end
   end
   object GroupBox1: TGroupBox
@@ -36,7 +36,8 @@ inherited frmOrcamentoCadastro: TfrmOrcamentoCadastro
     Align = alClient
     Caption = 'SERVI'#199'OS'
     TabOrder = 1
-    ExplicitHeight = 245
+    ExplicitWidth = 587
+    ExplicitHeight = 296
     object DBGrid1: TDBGrid
       Left = 2
       Top = 17
@@ -76,8 +77,8 @@ inherited frmOrcamentoCadastro: TfrmOrcamentoCadastro
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 210
-      ExplicitWidth = 591
+      ExplicitTop = 259
+      ExplicitWidth = 583
       object Label7: TLabel
         Left = 389
         Top = 11
@@ -145,6 +146,7 @@ inherited frmOrcamentoCadastro: TfrmOrcamentoCadastro
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 587
     object Label1: TLabel
       Left = 16
       Top = 14
